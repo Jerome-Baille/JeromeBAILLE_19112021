@@ -1,0 +1,771 @@
+/* Font import and general settings */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+    font-family: "Raleway", "Sans serif";
+}
+
+a {
+    color: inherit;
+    text-decoration: none; /* set to none to uniformise the appearance of the links */
+}
+
+/* Setting of the colors from the graphic charter as variables for a clearer use */
+:root{
+    --white : #ffffff;
+    --light-grey : #f2f2f2;
+    --blue : #0065fc;
+    --light-blue: #deebff;
+    --black : #000000; 
+}
+
+
+/* Header */
+.header {
+    display: flex;
+    margin: 0 30px;
+    padding-bottom: 30px;
+}
+    .header a {
+        display: flex;
+        justify-content: center;
+    } 
+
+    /* Size and position control of the logo */
+    .header img {
+        width: 50%; 
+        margin-top: 30px;
+    }
+nav {
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 50px;
+}
+    nav ul {
+        display: flex;
+        padding:0;
+        margin: 0;
+        width: 100%;
+    }
+    nav li {
+        list-style-type: none;
+    }
+    nav a { 
+        width: 100%;
+        font-size: 1.125rem;
+        padding-top: 40px;
+        font-weight: 600;
+        margin: 0 35px;
+    }
+        nav a:hover {
+            color: var(--blue);
+            border-top: 2px solid var(--blue);
+            padding-top: 38px;
+        } 
+
+/* Header changes for the mobile version (the tablet version being the same as desktop) */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    .header img {
+        width: 80%;
+    }
+    nav {
+        margin: 0;
+        width: 100%;
+    }
+        nav li {
+            width: 100%;
+        }
+        nav a {
+            margin: 0;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            border-top: none;
+            border-bottom: 4px solid var(--light-grey);
+            font-size: 1.25rem;
+        }
+            nav a:hover {
+                border-top: none;
+                border-bottom: 4px solid var(--blue);
+                padding-bottom: 20px;
+                padding-top: 40px;
+            } 
+}
+
+/* Main */
+main {
+    margin: 30px 50px; /* Put some space around the main content */
+}
+
+/* Position and size control over the description of the website */
+.searchHeader {
+    padding-bottom: 15px;
+}
+    .searchHeader h1 {
+        font-size: 1.75rem;
+        font-weight: bolder;
+        margin-bottom: 10px;
+    }
+    .searchHeader p {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.125rem;
+    }
+
+/* Search fields */
+.searchForm {
+    display: inline-flex;
+}
+.mapIconWrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-grey);
+    padding: 1rem 1.25rem;
+    border-radius: 15px 0 0 15px;
+    font-size: 1.25rem;
+}
+
+/* Input search */
+#citySearch {
+    border-right: none;
+    border-left: none;
+    border-top: var(--light-grey) 1px solid;
+    border-bottom: var(--light-grey) 1px solid;
+    padding: 14px 0 14px 20px;
+    width: 270px;
+    text-transform: capitalize;
+}
+    #citySearch:focus {
+        outline: none;
+    }
+input[type=search], #citySearch::placeholder {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 1.375rem;
+}
+.iconSearchButton {
+    display: none !important; /* Hiding the magnifying glass logo on tablet and desktop versions */
+}
+.searchButton{
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1.375rem;
+}
+    .searchButton:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6); /* Adding a shaddow effect to give more depth to the button */
+    }
+
+/* Search section for Tablet version */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    /* Description of the website */
+    .searchHeader h1 {
+        font-size: 1.625rem;
+    }
+
+    /* Search section */
+    .mapIconWrapper {
+        font-size: 1.125rem;
+        padding: calc(1.125rem /2) 1.125rem;
+    }
+    #citySearch {
+        padding: calc(1.125rem /2) 0 calc(1.125rem /2) 1rem;
+    }
+    input[type=search], #citySearch::placeholder {
+        font-size: 1.125rem;
+    }
+    .searchButton {
+        padding: calc(1.125rem /2) 1rem;
+    }
+}
+
+/* Search section for Mobile version */
+@media screen and (max-width: 768px) {
+    /* Size and position control over the description of the website */
+    #search {
+        padding: 40px 20px 10px 20px;
+    }
+    .searchHeader h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    /* Search section */
+    .searchForm{
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .mapIconWrapper {
+        padding: 1.25rem;
+        border-radius: 20px 0 0 20px;
+        font-size: 1.25rem;
+    }
+    #citySearch {
+        width: 100%;
+    }
+        #citySearch::placeholder {
+            padding-left: 0;
+        }
+    input[type=search], #citySearch::placeholder {
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    .iconSearchButton {
+        display: block !important; /* Showing the magnifying glass on Mobile */
+    }
+    .searchButton {
+        border-radius: 15px;
+        padding: 20px;
+        font-size: 1.25rem;
+        margin-left: -10px;
+    }
+    .spanSearchButton {
+        display : none; /* Hiding the word "Rechercher" on Mobile */
+    }
+}
+
+/* Filters */
+.filtersWrap { /* Wrap the title of the section "Filtres" and the different filters together */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px 0 20px 0;
+}
+    .filtersWrap h3 {
+        padding-right: 15px;
+        font-size: 1.375rem;
+    }
+
+.filtersSelection { /* Wrap all the filters */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.filters {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+    .filters a {
+        display: flex;
+    }
+        /* When the link is hovered the background color of the text becomes blue and the one of the icon becomes grey */
+        .filters a:hover .textFilter { 
+            background-color: var(--light-blue);
+            border-top: 4px var(--light-blue) solid;
+            border-bottom: 4px var(--light-blue) solid;
+            border-right: 4px var(--light-blue) solid;
+        }
+        .filters a:hover .wrapFilterIcon {
+            background-color: var(--light-grey);
+        }
+.wrapFilterIcon { /* Use to create a circle around the filters icons */
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-blue);
+    color: var(--blue);
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+}
+.textFilter {
+    display: flex;
+    align-items: center;
+    border-top: 4px var(--light-grey) solid;
+    border-bottom: 4px var(--light-grey) solid;
+    border-right: 4px var(--light-grey) solid;
+    padding: 9px 15px 9px 35px;
+    margin-left: -25px;
+    border-radius: 0 50px 50px 0;
+    font-weight: bold;
+    font-size: 1.375rem;
+}
+
+/* Information section */
+.infoWrapper { /* Wrap the icon and the text of the info under the filters */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+    .infoWrapper p {
+        font-size: 1rem;
+    }
+.wrapInfoIcon {
+    height: calc(1rem *2);
+    width: calc(1rem *2);
+    border: var(--light-grey) 2px solid;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+    .wrapInfoIcon i {
+        color: var(--blue);
+        font-size: 1rem;
+    }
+
+/* Filters section for the Tablet version */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .textFilter {
+        font-size: 1.125rem;
+    }
+}
+
+/* Filters section for the Mobile version */
+@media screen and (max-width: 768px) {
+    .filtersWrap { /* Wrap the title of the section "Filtres" and the different filters together */
+        margin-bottom: 0;
+    }
+        .filtersWrap h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    .filters {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .wrapFilterIcon {
+        font-size: 1.25rem;
+    }
+    .textFilter {
+        font-size: 1.125rem;
+    }
+
+    .wrapInfoIcon {
+        height: calc(1.125rem *2);
+        width: calc(1.125rem *2.5);
+    }
+        .wrapInfoIcon i {
+            font-size: 1.125rem;
+        }
+}
+
+/* List of accomodation section (complete list + most popular) */
+#booking {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    width: 100%;
+}
+.bookingMarseille, .mostPopular {
+    background-color: var(--light-grey);
+    border-radius: 20px;
+    margin-bottom : 10px;
+}
+    .bookingMarseille {
+        width: 65%;
+        padding: 60px 20px;
+    }
+    .mostPopular {
+        width: 35%;
+        padding: 60px 20px 20px 20px;
+    }
+.titleCategories { /* Set the size and position of "Hébergements à Marseille", "Les plus populaires" and "Activités à Marseille" */
+    font-size: 1.75rem;
+    margin-top: 0;
+}
+
+.cardWrapper { /* Wrap all the card of the "Hébergements à Marseille" section */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+.card { /* Use to manage the general layout of each card in the Booking and Most Popular sections */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-basis: 30%;
+    padding: 5px;
+    background: var(--white);
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+    .mostPopular .card {
+        flex-direction: row;
+        height: 150px;
+    }
+    .card:hover { 
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6); /* Add a shaddow effect to the card */
+    }
+.bookingImg { /* Set the size and behavior of images in the cards of Booking and Most popular sections */
+    width: 100%;
+    height: 115px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; /* Add round corners on the top of the image */
+}
+    .mostPopular .bookingImg {
+        width: 30%;
+        height: auto;
+        border-radius: 15px 0 0 15px; /* Add rounded corners on the left side of the image and remove the one on the top right side */
+        padding: 2px;
+    }
+.cardBody { /* Wrap the elements other than the image together */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 15px 5px 15px;
+}
+    .cardBody h3 {
+        font-weight: bolder;
+        font-size: 1.125rem;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+    .cardBody p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+.starsWrapper i {
+    font-size: 1.125rem;
+}
+    .starsWrapper i[data-active=true] {
+        color: var(--blue);
+    }
+    .starsWrapper i[data-active=false] {
+        color: var(--light-grey);
+    }
+    .mostPopular .starsWrapper {
+        margin-top: auto;
+        padding-bottom: 10px;
+    }
+
+.seeMore {
+    font-size: 1.375rem;
+    font-weight: bold;
+}
+
+.titleMostPopular {
+    display: flex;
+    justify-content: space-between;
+}
+    .titleMostPopular i {
+        font-size: 1.75rem;
+    }
+
+/* List of the accomodations for the Tablet version */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #booking {
+        margin: 0;
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+    .bookingMarseille, .mostPopular {
+        width: 100%;
+    }
+}
+
+/* List of the accomodations for the Mobile version */
+@media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        margin: 0;
+    }
+    #booking {
+        margin: 0;
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+    .bookingMarseille {
+        background-color: var(--white);
+        padding: 0;
+        width: 100%;
+    }
+    .titleCategories {
+        font-size: 1.5rem;
+    }
+    .cardWrapper {
+        row-gap: 5px;
+    }
+    .card {
+        flex-basis: 100%;
+    }
+    .bookingMarseille .bookingImg {
+        height: 200px;
+    }
+    .cardBody {
+        padding: 0 20px;
+    }
+        .cardBody h3 {
+            font-size: 1.25rem;
+        }
+        .bookingMarseille .cardBody p {
+            padding-top: 5px;
+        }
+        .mostPopular .cardBody p {
+            padding: 0;
+        }
+        .cardBody p {
+            font-size: 1.125rem;
+        }
+    .bookingMarseille .starsWrapper {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .starsWrapper i {
+        font-size: 1rem;
+    }
+ 
+    .mostPopular {
+        background-color: var(--light-grey);
+        padding: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    .cardBooking, .cardPopular{
+        padding: 30px;
+    }
+
+    .titleMostPopular {
+        padding-bottom: 10px;
+    }
+        .titleMostPopular i {
+            font-size: 1.875rem;
+        }
+}
+
+/* Activities section */
+#activities { /* Wrap the entire activities section */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    width: 100%;
+}
+.activityWrapper { /* Wrap all the columns of the activities section together */
+    height: 500px; 
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 50px;
+}
+.activityColumnWrapper { /* Wrap all the elements of each column with a single row */
+    height: 100%;
+    width: 25%; 
+    display: flex; 
+    justify-content: space-between;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+.activity2rowColumnWrapper { /* Wrap all the elements of each column with 2 rows */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 25%;
+}
+    .cardFortDePomegues { /* Set a specific size for that card */
+        height: 53%; 
+    }
+    .cardIleDuFrioul { /* Set a specific size for that card */
+        height: 37%;
+    }
+    .cardNotreDameDeLaGarde { /* Set a specific size for that card */
+        height: 44%;
+    }
+    .cardParcLongchamp { /* Set a specific size for that card */
+        height: 47%;
+    }
+        /* Set the general behavior for the cards with a specific size + add shaddow */
+        .cardFortDePomegues, 
+        .cardIleDuFrioul, 
+        .cardNotreDameDeLaGarde,
+        .cardParcLongchamp {
+            display: flex; 
+            justify-content: space-between;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            width: 100%;
+        }
+            /* Add more shaddow when cards with specific size are hover */
+            .activityColumnWrapper:hover,
+            .cardFortDePomegues:hover, 
+            .cardIleDuFrioul:hover, 
+            .cardNotreDameDeLaGarde:hover,
+            .cardParcLongchamp:hover {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+            }
+            .activityColumnWrapper a,
+            .cardFortDePomegues a, 
+            .cardIleDuFrioul a, 
+            .cardNotreDameDeLaGarde a,
+            .cardParcLongchamp a {
+                width: 100%;
+            }
+.activityImgWrapper {
+    height: calc(100% - 90px); /* The image will take all the space minus the height of the caption */
+}
+    /* The image inside will take the full size of the parent element and have rounded top borders */
+    .activityImg {
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; /* occupy the full space but keep the proportion of the image*/
+        border-radius: 20px 20px 0 0;
+    }
+/* Set the size and behavior of the caption, under the image in the activities section */
+.activityCaption {
+    height: 90px;
+    display: flex; 
+    justify-content: flex-start; 
+    padding: 0 20px; 
+    align-items: center;
+}
+    .activityCaption p {
+        height: 100%;
+        font-size: 1.375rem;
+        font-weight: bold;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+/* Activities section for the Tablet version */
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #activities {
+        margin-top: 30px;
+    }
+    .activityWrapper{
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        column-gap: 3%;
+    }
+    .activity2rowColumnWrapper, .activityColumnWrapper {
+        height: 500px;
+        width: 47%;
+        margin-bottom: 30px;
+    }
+    .activityImgWrapper {
+        height: calc(100% - calc(2.8125rem + 8px)); /* 100% - 2.5 times the font size + 8px due to the shadow effect of 8px at the bottom*/
+    }
+    .activityCaption {
+        height: 2.8125rem; /* Height = 2.5 times the font-size */
+    }
+        .activityCaption p {
+            font-size: 1.125rem;
+        }
+}
+
+/* Activities section for the Mobile version */
+@media screen and (max-width: 768px) {
+    #activities {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        height: 100%;
+        padding: 0 30px;
+    }
+    .activityWrapper {
+        padding-top: 10px;
+        flex-direction: column;
+        row-gap: 20px;
+        height: auto;
+    }
+    .activityColumnWrapper,
+    .cardFortDePomegues, 
+    .cardIleDuFrioul, 
+    .cardNotreDameDeLaGarde,
+    .cardParcLongchamp {
+        width: 100%; 
+        height: 250px !important;
+    }
+    .activity2rowColumnWrapper {
+        width: 100%;
+        row-gap: 20px;
+    }
+    .activityImgWrapper {
+        height: calc(100% - calc(3.125rem + 8px)); /* 100% - 2.5 times the font size + 8px due to the shadow effect of 8px at the bottom*/
+    }
+    .activityCaption {
+        height: 3.125rem; /* Height = 2.5 times the font-size */
+    }
+        .activityCaption p {
+            font-size: 1.25em; 
+        }
+}
+
+
+/* Footer */
+footer {
+    display: flex;
+    background-color: var(--light-grey);
+    width: 100%;
+    padding: 60px 0 35px 0;
+}
+.footerWrapper { /* Wrapp all the links and the titles of the footer section */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    padding-left: 50px;
+}
+.footerColumn { /* Set the size of each column (title of the column + links) */
+    width: 30%;
+}
+    .footerColumn h3 {
+        font-size: 1.375rem;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+    .footerColumn a {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.125rem;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+        .footerColumn a:hover {
+            text-decoration: underline;
+        }
+
+/* Footer section for the Mobile version */
+@media screen and (max-width: 768px) {
+    footer {
+        justify-content: center;
+        padding: 0;
+    }
+    .footerWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px;
+    }
+    .footerColumn {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+        .footerColumn h3 {
+            font-size: 1.25rem;
+        }
+}
